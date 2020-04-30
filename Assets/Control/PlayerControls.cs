@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Settings/PlayerControls.inputactions'
 
 using System;
 using System.Collections;
@@ -23,6 +23,30 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""9a2d069e-c7e5-437a-87b8-4d645fc66014"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Command"",
+                    ""type"": ""Button"",
+                    ""id"": ""877ea9d0-5987-40d3-8555-f749942c9832"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""158855e1-9f33-4f03-a226-df3677024367"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""66ea9659-1446-45de-ad61-baab037d9b3a"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -82,6 +106,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a627cb41-8502-42e4-aaf6-2f0a42001ff8"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c99982c-9042-41cf-b9e7-30652e9ebdd5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f78d7e1-fde7-4bb3-9721-eeb77db8d8a0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -91,6 +148,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Priest
         m_Priest = asset.FindActionMap("Priest", throwIfNotFound: true);
         m_Priest_Walk = m_Priest.FindAction("Walk", throwIfNotFound: true);
+        m_Priest_Command = m_Priest.FindAction("Command", throwIfNotFound: true);
+        m_Priest_Confirm = m_Priest.FindAction("Confirm", throwIfNotFound: true);
+        m_Priest_Cancel = m_Priest.FindAction("Cancel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,11 +201,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Priest;
     private IPriestActions m_PriestActionsCallbackInterface;
     private readonly InputAction m_Priest_Walk;
+    private readonly InputAction m_Priest_Command;
+    private readonly InputAction m_Priest_Confirm;
+    private readonly InputAction m_Priest_Cancel;
     public struct PriestActions
     {
         private @PlayerControls m_Wrapper;
         public PriestActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Priest_Walk;
+        public InputAction @Command => m_Wrapper.m_Priest_Command;
+        public InputAction @Confirm => m_Wrapper.m_Priest_Confirm;
+        public InputAction @Cancel => m_Wrapper.m_Priest_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_Priest; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -158,6 +224,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Walk.started -= m_Wrapper.m_PriestActionsCallbackInterface.OnWalk;
                 @Walk.performed -= m_Wrapper.m_PriestActionsCallbackInterface.OnWalk;
                 @Walk.canceled -= m_Wrapper.m_PriestActionsCallbackInterface.OnWalk;
+                @Command.started -= m_Wrapper.m_PriestActionsCallbackInterface.OnCommand;
+                @Command.performed -= m_Wrapper.m_PriestActionsCallbackInterface.OnCommand;
+                @Command.canceled -= m_Wrapper.m_PriestActionsCallbackInterface.OnCommand;
+                @Confirm.started -= m_Wrapper.m_PriestActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_PriestActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_PriestActionsCallbackInterface.OnConfirm;
+                @Cancel.started -= m_Wrapper.m_PriestActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_PriestActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_PriestActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_PriestActionsCallbackInterface = instance;
             if (instance != null)
@@ -165,6 +240,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Walk.started += instance.OnWalk;
                 @Walk.performed += instance.OnWalk;
                 @Walk.canceled += instance.OnWalk;
+                @Command.started += instance.OnCommand;
+                @Command.performed += instance.OnCommand;
+                @Command.canceled += instance.OnCommand;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -172,5 +256,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPriestActions
     {
         void OnWalk(InputAction.CallbackContext context);
+        void OnCommand(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }
