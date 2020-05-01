@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Pathfinding;
+using TMPro;
 
 public abstract class CultistAI : HealthEntity
 {
@@ -12,7 +13,7 @@ public abstract class CultistAI : HealthEntity
 
     [SerializeField]
     protected Vector2 currentTargetPosition;
-        
+
     [SerializeField]
     protected float attackCooldown = 1f;
 
@@ -33,6 +34,22 @@ public abstract class CultistAI : HealthEntity
 
     [SerializeField]
     protected AIDestinationSetter aIDestinationSetter;
+
+    [SerializeField]
+    protected TextMeshProUGUI nametag;
+
+    protected void SetNametag()
+    {
+        if (nametag != null)
+        {
+            nametag.text = gameObject.name;
+        }
+    }
+
+    protected void UpdateCultistAi()
+    {
+        base.UpdateHealthEntity();
+    }
 
     protected void Attack()
     {

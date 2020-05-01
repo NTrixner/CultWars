@@ -15,6 +15,7 @@ public class EnemyAI : CultistAI
     void Start()
     {
         this.name = "Evil " + DataSets.RandomNames[Random.Range(0, DataSets.RandomNames.Count - 1)];
+        base.SetNametag();
         attackCurrentCooldown = attackCooldown;
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
@@ -35,6 +36,7 @@ public class EnemyAI : CultistAI
                 Attack();
                 break;
         }
+        base.UpdateCultistAi();
     }
 
     protected override void SawSomething(Collider2D collision)

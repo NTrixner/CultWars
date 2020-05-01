@@ -12,6 +12,10 @@ public class Cage : HealthEntity
     [SerializeField]
     int maxGoodGuySpawn;
 
+    void Update() {
+        base.UpdateHealthEntity();
+    }
+
     public override void Die()
     {
         float xmin = bodyCollider.bounds.min.x;

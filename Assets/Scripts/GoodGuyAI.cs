@@ -16,6 +16,7 @@ public class GoodGuyAI : CultistAI
     void Start()
     {
         this.name = DataSets.RandomNames[Random.Range(0, DataSets.RandomNames.Count - 1)];
+        base.SetNametag();
         attackCurrentCooldown = attackCooldown;
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
@@ -40,6 +41,7 @@ public class GoodGuyAI : CultistAI
                 break;
 
         }
+        base.UpdateCultistAi();
     }
 
     public void Command(Vector3 target)
