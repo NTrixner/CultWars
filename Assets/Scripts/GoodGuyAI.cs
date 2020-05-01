@@ -60,28 +60,24 @@ public class GoodGuyAI : CultistAI
 
     public void StartPray()
     {
-        Debug.Log("Good guys StartPray");
         current_task = Task.PRAY;
         // TODO set animation/play sound for praying
     }
 
     public void EndPray()
     {
-        Debug.Log("Good guys EndPray");
         current_task = Task.IDLE;
         current_target = null;
     }
 
     public void StartPrayEffect()
     {
-        Debug.Log("Good guys StartPrayEffect");
         // TODO set animation/play sound for pray effect
         prayEffectActive = true;
     }
 
     public void EndPrayEffect()
     {
-        Debug.Log("Good guys EndPrayEffect");
         // TODO end animation/play sound for pray effect
         prayEffectActive = false;
     }

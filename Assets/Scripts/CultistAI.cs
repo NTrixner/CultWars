@@ -93,7 +93,7 @@ public abstract class CultistAI : HealthEntity
         bool isHealthEntity = collision.gameObject.TryGetComponent<HealthEntity>(out otherEntity);
         if (isHealthEntity)
         {
-            if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
+            if (collision.IsTouching(rangeCollider) && otherEntity.HasCollision(collision))
             {
                 SawSomething(collision);
             }
