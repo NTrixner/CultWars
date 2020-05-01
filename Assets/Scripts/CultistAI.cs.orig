@@ -72,13 +72,24 @@ public abstract class CultistAI : HealthEntity
     {
         HealthEntity otherEntity;
         bool isHealthEntity = collision.gameObject.TryGetComponent<HealthEntity>(out otherEntity);
+<<<<<<< HEAD
         if (isHealthEntity)
         {
             if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
             {
                 SawSomething(collision);
             }
+            if (collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
+            {
+                TouchedSomething(collision);
+            }
+=======
+
+        if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && isHealthEntity && otherEntity.bodyCollider == collision)
+        {
+            SawSomething(collision);
         }
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -88,6 +99,7 @@ public abstract class CultistAI : HealthEntity
         if (collision.otherCollider == bodyCollider && isHealthEntity && otherEntity.bodyCollider == collision.collider)
         {
             TouchedSomething(collision.collider);
+>>>>>>> Add AStar Algorithm
         }
     }
 

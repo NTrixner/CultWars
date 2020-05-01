@@ -174,7 +174,7 @@ MonoBehaviour:
   distanceThreshold: 1
   movementSpeed: 1
   attackCurrentCooldown: 0
-  touchesEnemy: 0
+  touchesTarget: 0
   aIDestinationSetter: {fileID: 0}
   current_task: 0
 --- !u!114 &8775728695696612622
@@ -234,7 +234,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0.2
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0

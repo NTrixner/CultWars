@@ -53,8 +53,12 @@ public class EnemyAI : CultistAI
         GoodGuyAI goodGuyAI;
         if (collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
+<<<<<<< HEAD
             touchesTarget = true;
+=======
             aIDestinationSetter.target = null;
+            touchesEnemy = true;
+>>>>>>> Add AStar Algorithm
         }
     }
 }
