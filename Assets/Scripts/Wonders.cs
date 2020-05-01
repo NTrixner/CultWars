@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wonders : MonoBehaviour
 {
+    [SerializeField]
+    Button prayButton; 
     [SerializeField]
     Cooldown prayCooldown;
     [SerializeField]
@@ -39,6 +42,7 @@ public class Wonders : MonoBehaviour
         {
             goodGuy.StartPray();
         }
+        prayButton.interactable = false;
     }
 
     void EndPray()
@@ -69,6 +73,7 @@ public class Wonders : MonoBehaviour
         foreach (GoodGuyAI goodGuy in FindObjectsOfType<GoodGuyAI>())
         {
             goodGuy.EndPrayEffect();
+        prayButton.interactable = true;
         }
     }
 }
