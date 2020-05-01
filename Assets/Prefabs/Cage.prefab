@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 6583900932966802694}
   - component: {fileID: 6583900932966802695}
   - component: {fileID: 6583900932966802696}
+  - component: {fileID: 2286465226008536804}
   - component: {fileID: 6583900932966802697}
   - component: {fileID: 6583900932966802693}
   m_Layer: 8
@@ -267,8 +268,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -856892937
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 605917c23d90d954880f8b6d20d7054f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -281,6 +282,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2286465226008536804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583900932966802698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729ddbb25afbb3d4988457af34e08081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &6583900932966802697
 BoxCollider2D:
   m_ObjectHideFlags: 0
