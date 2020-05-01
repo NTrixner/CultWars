@@ -25,7 +25,7 @@ public class GoodGuyAI : CultistAI
         if (current_target == null && current_task == Task.ATTACK)
         {
             current_task = Task.IDLE;
-            touchesEnemy = false;
+            touchesTarget = false;
         }
         switch (current_task)
         {
@@ -51,20 +51,31 @@ public class GoodGuyAI : CultistAI
 
     protected override void SawSomething(Collider2D collision)
     {
-        EnemyAI enemyAI;
-        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<EnemyAI>(out enemyAI))
+        EnemyAI targetEnemy;
+        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<EnemyAI>(out targetEnemy))
         {
             current_task = Task.ATTACK;
-            current_target = enemyAI.transform;
+            current_target = targetEnemy.transform;
+        }
+        Cage targetCage;
+        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<Cage>(out targetCage))
+        {
+            current_task = Task.ATTACK;
+            current_target = targetCage.transform;
         }
     }
 
     protected override void TouchedSomething(Collider2D collision)
     {
-        EnemyAI enemyAI;
-        if (collision.gameObject.TryGetComponent<EnemyAI>(out enemyAI))
+        EnemyAI targetEnemy;
+        if (collision.gameObject.TryGetComponent<EnemyAI>(out targetEnemy))
         {
-            touchesEnemy = true;
+            touchesTarget = true;
+        }
+        Cage targetCage;
+        if (collision.gameObject.TryGetComponent<Cage>(out targetCage))
+        {
+            touchesTarget = true;
         }
     }
 }

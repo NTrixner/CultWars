@@ -31,5 +31,10 @@ public abstract class HealthEntity : MonoBehaviour
         }
     }
 
+    public bool HasCollision(Collider2D collision)
+    {
+        return bodyCollider == collision;
+    }
+
     public abstract void Die();
 }
