@@ -59,4 +59,11 @@ public class EnemyAI : CultistAI
             aIDestinationSetter.target = null;
         }
     }
+
+    protected override float CurrentDamage()
+    {
+        float cur_damage = damage;
+        // No multipliers for now
+        return cur_damage;
+    }
 }

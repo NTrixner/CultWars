@@ -35,14 +35,20 @@ public class Wonders : MonoBehaviour
         Debug.Log("Start praying");
         prayCooldown.ResetCooldown();
         isPraying = true;
-        // TODO make good guys pray, i.e. stop and do nothing + animation
+        foreach (GoodGuyAI goodGuy in FindObjectsOfType<GoodGuyAI>())
+        {
+            goodGuy.StartPray();
+        }
     }
 
     void EndPray()
     {
         Debug.Log("End praying");
         isPraying = false;
-        // TODO make good guys pray
+        foreach (GoodGuyAI goodGuy in FindObjectsOfType<GoodGuyAI>())
+        {
+            goodGuy.EndPray();
+        }
     }
 
     void StartPrayEffect()
@@ -50,11 +56,19 @@ public class Wonders : MonoBehaviour
         Debug.Log("Start pray effect");
         isPrayEffectActive = true;
         prayEffectCooldown.ResetCooldown();
+        foreach (GoodGuyAI goodGuy in FindObjectsOfType<GoodGuyAI>())
+        {
+            goodGuy.StartPrayEffect();
+        }
     }
 
     void EndPrayEffect()
     {
         Debug.Log("End pray effect");
         isPrayEffectActive = false;
+        foreach (GoodGuyAI goodGuy in FindObjectsOfType<GoodGuyAI>())
+        {
+            goodGuy.EndPrayEffect();
+        }
     }
 }

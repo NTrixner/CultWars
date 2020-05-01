@@ -7,11 +7,16 @@ public class GoodGuyAI : CultistAI
     {
         IDLE,
         FOLLOW_COMMAND,
-        ATTACK
+        ATTACK,
+        PRAY
     }
 
     [SerializeField]
     private Task current_task = Task.IDLE;
+
+    [SerializeField]
+    private float prayEffectDamageMultiplier = 2.0f;
+    private bool prayEffectActive = false;
 
     void Start()
     {
@@ -39,7 +44,8 @@ public class GoodGuyAI : CultistAI
             case Task.ATTACK:
                 Attack();
                 break;
-
+            case Task.PRAY:
+                break;
         }
         base.UpdateCultistAi();
     }
@@ -50,6 +56,34 @@ public class GoodGuyAI : CultistAI
         current_target = null;
         currentTargetPosition = target;
         current_task = Task.FOLLOW_COMMAND;
+    }
+
+    public void StartPray()
+    {
+        Debug.Log("Good guys StartPray");
+        current_task = Task.PRAY;
+        // TODO set animation/play sound for praying
+    }
+
+    public void EndPray()
+    {
+        Debug.Log("Good guys EndPray");
+        current_task = Task.IDLE;
+        current_target = null;
+    }
+
+    public void StartPrayEffect()
+    {
+        Debug.Log("Good guys StartPrayEffect");
+        // TODO set animation/play sound for pray effect
+        prayEffectActive = true;
+    }
+
+    public void EndPrayEffect()
+    {
+        Debug.Log("Good guys EndPrayEffect");
+        // TODO end animation/play sound for pray effect
+        prayEffectActive = false;
     }
 
     protected override void SawSomething(Collider2D collision)
@@ -84,5 +118,16 @@ public class GoodGuyAI : CultistAI
             touchesTarget = true;
             aIDestinationSetter.target = null;
         }
+    }
+
+    protected override float CurrentDamage()
+    {
+        float curDamage = damage;
+        if (prayEffectActive)
+        {
+            curDamage *= prayEffectDamageMultiplier;
+        }
+
+        return curDamage;
     }
 }
