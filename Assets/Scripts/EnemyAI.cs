@@ -15,6 +15,7 @@ public class EnemyAI : CultistAI
     void Start()
     {
         this.name = "Evil " + DataSets.RandomNames[Random.Range(0, DataSets.RandomNames.Count - 1)];
+        base.SetNametag();
         attackCurrentCooldown = attackCooldown;
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
