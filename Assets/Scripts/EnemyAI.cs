@@ -35,6 +35,7 @@ public class EnemyAI : CultistAI
                 Attack();
                 break;
         }
+        base.UpdateCultistAi();
     }
 
     protected override void SawSomething(Collider2D collision)

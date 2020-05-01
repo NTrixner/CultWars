@@ -40,6 +40,7 @@ public class GoodGuyAI : CultistAI
                 break;
 
         }
+        base.UpdateCultistAi();
     }
 
     public void Command(Vector3 target)

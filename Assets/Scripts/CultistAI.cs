@@ -34,6 +34,10 @@ public abstract class CultistAI : HealthEntity
     [SerializeField]
     protected AIDestinationSetter aIDestinationSetter;
 
+    protected void UpdateCultistAi() {
+        base.UpdateHealthEntity();
+    }
+
     protected void Attack()
     {
         HealthEntity enemy = current_target.gameObject.GetComponent<HealthEntity>();

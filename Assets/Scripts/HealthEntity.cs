@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class HealthEntity : MonoBehaviour
 {
@@ -13,10 +12,52 @@ public abstract class HealthEntity : MonoBehaviour
     [SerializeField]
     public Collider2D bodyCollider;
 
+    [SerializeField] private Image healthbar;
+
+    [SerializeField] private Color healthyColor;
+
+    [SerializeField] private Color deadColor;
+
+    [SerializeField] private RectTransform healthbarTransform;
+    private float healthbarOriginalWidth;
+
+    void OnEnable()
+    {
+        // workaround because assigning as parameter does not work
+        //Transform healthbarImage = gameObject.transform.Find ("Healthbar").GetComponent<Image> ();
+        healthbar.color = healthyColor;
+        //healthbarTransform = transform.Find ("Healthbar").GetComponent<RectTransform> ();
+        healthbarOriginalWidth = healthbarTransform.rect.width;
+    }
+
+    protected void UpdateHealthEntity()
+    {
+        //Debug.Log("Update healthentity");
+        if (healthbar != null)
+        {
+            UpdateHealthbar();
+        }
+    }
+
+    private void UpdateHealthbar()
+    {
+        float value = (Health / MaxHealth);
+        Color newColor = Color.Lerp(deadColor, healthyColor, value);
+
+        healthbar.color = newColor;
+
+        float oldWidth = healthbarTransform.rect.width;
+        float newWidth = healthbarOriginalWidth * value;
+
+        float y = healthbarTransform.sizeDelta.y;
+        healthbarTransform.sizeDelta = new Vector2(newWidth, y);
+
+    }
+
     public void ReduceHealth(float damage)
     {
         Health -= damage;
-        if(Health <= 0)
+        if (Health <= 0)
         {
             Die();
         }
@@ -25,7 +66,7 @@ public abstract class HealthEntity : MonoBehaviour
     public void Heal(float regain)
     {
         Health += regain;
-        if(Health >= MaxHealth)
+        if (Health >= MaxHealth)
         {
             Health = MaxHealth;
         }
