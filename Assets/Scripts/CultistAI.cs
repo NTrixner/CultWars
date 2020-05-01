@@ -50,9 +50,11 @@ public abstract class CultistAI : HealthEntity
     {
         base.UpdateHealthEntity();
     }
+    protected abstract float CurrentDamage();
 
     protected void Attack()
     {
+        Debug.Log("Attacking");
         HealthEntity enemy = current_target.gameObject.GetComponent<HealthEntity>();
         if (enemy != null && touchesTarget)
         {
@@ -61,7 +63,7 @@ public abstract class CultistAI : HealthEntity
             Debug.Log("Time was " + Time.deltaTime);
             if (attackCurrentCooldown <= 0)
             {
-                enemy.ReduceHealth(damage);
+                enemy.ReduceHealth(CurrentDamage());
                 attackCurrentCooldown = attackCooldown;
             }
         }
@@ -91,7 +93,7 @@ public abstract class CultistAI : HealthEntity
         bool isHealthEntity = collision.gameObject.TryGetComponent<HealthEntity>(out otherEntity);
         if (isHealthEntity)
         {
-            if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
+            if (collision.IsTouching(rangeCollider) && otherEntity.HasCollision(collision))
             {
                 SawSomething(collision);
             }
