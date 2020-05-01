@@ -11,7 +11,7 @@ public abstract class HealthEntity : MonoBehaviour
     private float MaxHealth = 100f;
 
     [SerializeField]
-    protected Collider2D bodyCollider;
+    public Collider2D bodyCollider;
 
     public void ReduceHealth(float damage)
     {

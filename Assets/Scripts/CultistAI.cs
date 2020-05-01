@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Pathfinding;
 
 public abstract class CultistAI : HealthEntity
 {
@@ -29,6 +30,9 @@ public abstract class CultistAI : HealthEntity
 
     [SerializeField]
     protected bool touchesTarget;
+
+    [SerializeField]
+    protected AIDestinationSetter aIDestinationSetter;
 
     protected void Attack()
     {
@@ -74,10 +78,16 @@ public abstract class CultistAI : HealthEntity
             {
                 SawSomething(collision);
             }
-            if (collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
-            {
-                TouchedSomething(collision);
-            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        HealthEntity otherEntity;
+        bool isHealthEntity = collision.gameObject.TryGetComponent<HealthEntity>(out otherEntity);
+        if (collision.otherCollider == bodyCollider && isHealthEntity && otherEntity.bodyCollider == collision.collider)
+        {
+            TouchedSomething(collision.collider);
         }
     }
 
@@ -91,15 +101,6 @@ public abstract class CultistAI : HealthEntity
         }
     }
 
-    protected void GoToDestination()
-    {
-        if (Vector2.Distance(transform.position, currentTargetPosition) >= distanceThreshold)
-        {
-            Vector2 direction = (currentTargetPosition - (Vector2)transform.position).normalized;
-            Vector2 newPos = direction * movementSpeed * Time.deltaTime;
-            transform.position += new Vector3(newPos.x, newPos.y);
-        }
-    }
     protected abstract void SawSomething(Collider2D collision);
 
     protected abstract void TouchedSomething(Collider2D collision);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Pathfinding;
 
 public class EnemyAI : CultistAI
 {
@@ -15,6 +16,7 @@ public class EnemyAI : CultistAI
     {
         this.name = "Evil " + DataSets.RandomNames[Random.Range(0, DataSets.RandomNames.Count - 1)];
         attackCurrentCooldown = attackCooldown;
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class EnemyAI : CultistAI
         {
             current_task = EvilTask.ATTACK;
             current_target = goodGuyAI.transform;
+            aIDestinationSetter.target = current_target;
         }
     }
 
@@ -51,6 +54,7 @@ public class EnemyAI : CultistAI
         if (collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
             touchesTarget = true;
+            aIDestinationSetter.target = null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Pathfinding;
+using UnityEngine;
 
 public class GoodGuyAI : CultistAI
 {
@@ -12,11 +13,11 @@ public class GoodGuyAI : CultistAI
     [SerializeField]
     private Task current_task = Task.IDLE;
 
-
     void Start()
     {
         this.name = DataSets.RandomNames[Random.Range(0, DataSets.RandomNames.Count - 1)];
         attackCurrentCooldown = attackCooldown;
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
 
     // Update is called once per frame
@@ -33,7 +34,6 @@ public class GoodGuyAI : CultistAI
                 Idle();
                 break;
             case Task.FOLLOW_COMMAND:
-                GoToDestination();
                 break;
             case Task.ATTACK:
                 Attack();
@@ -44,6 +44,7 @@ public class GoodGuyAI : CultistAI
 
     public void Command(Vector3 target)
     {
+        GetComponent<AIPath>().destination = target;
         current_target = null;
         currentTargetPosition = target;
         current_task = Task.FOLLOW_COMMAND;
@@ -56,12 +57,14 @@ public class GoodGuyAI : CultistAI
         {
             current_task = Task.ATTACK;
             current_target = targetEnemy.transform;
+            aIDestinationSetter.target = current_target;
         }
         Cage targetCage;
         if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<Cage>(out targetCage))
         {
             current_task = Task.ATTACK;
             current_target = targetCage.transform;
+            aIDestinationSetter.target = current_target;
         }
     }
 
@@ -71,11 +74,13 @@ public class GoodGuyAI : CultistAI
         if (collision.gameObject.TryGetComponent<EnemyAI>(out targetEnemy))
         {
             touchesTarget = true;
+            aIDestinationSetter.target = null;
         }
         Cage targetCage;
         if (collision.gameObject.TryGetComponent<Cage>(out targetCage))
         {
             touchesTarget = true;
+            aIDestinationSetter.target = null;
         }
     }
 }
