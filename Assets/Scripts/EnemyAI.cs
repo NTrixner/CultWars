@@ -22,7 +22,7 @@ public class EnemyAI : CultistAI
         if (current_target == null && current_task == EvilTask.ATTACK)
         {
             current_task = EvilTask.IDLE;
-            touchesEnemy = false;
+            touchesTarget = false;
         }
         switch (current_task)
         {
@@ -50,7 +50,7 @@ public class EnemyAI : CultistAI
         GoodGuyAI goodGuyAI;
         if (collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
-            touchesEnemy = true;
+            touchesTarget = true;
         }
     }
 }

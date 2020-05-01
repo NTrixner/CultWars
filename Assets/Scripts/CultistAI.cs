@@ -28,12 +28,12 @@ public abstract class CultistAI : HealthEntity
     protected float attackCurrentCooldown;
 
     [SerializeField]
-    protected bool touchesEnemy;
+    protected bool touchesTarget;
 
     protected void Attack()
     {
         HealthEntity enemy = current_target.gameObject.GetComponent<HealthEntity>();
-        if (enemy != null && touchesEnemy)
+        if (enemy != null && touchesTarget)
         {
             attackCurrentCooldown -= Time.deltaTime;
             Debug.Log("Cooldown is " + attackCurrentCooldown);
@@ -66,22 +66,25 @@ public abstract class CultistAI : HealthEntity
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        CultistAI otherEntity;
-        bool isHealthEntity = collision.gameObject.TryGetComponent<CultistAI>(out otherEntity);
-
-        if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && isHealthEntity && otherEntity.bodyCollider == collision)
+        HealthEntity otherEntity;
+        bool isHealthEntity = collision.gameObject.TryGetComponent<HealthEntity>(out otherEntity);
+        if (isHealthEntity)
         {
-            SawSomething(collision);
-        }
-        if(collision.IsTouching(bodyCollider) && isHealthEntity && otherEntity.bodyCollider == collision)
-        {
-            TouchedSomething(collision);
+            if (collision.IsTouching(rangeCollider) && !collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
+            {
+                SawSomething(collision);
+            }
+            if (collision.IsTouching(bodyCollider) && otherEntity.HasCollision(collision))
+            {
+                TouchedSomething(collision);
+            }
         }
     }
 
+
     protected void GoToAttackTarget()
     {
-        if (!touchesEnemy)
+        if (!touchesTarget)
         {
             Vector2 direction = (current_target.position - transform.position).normalized;
             transform.position += (Vector3)(direction * movementSpeed * Time.deltaTime);
