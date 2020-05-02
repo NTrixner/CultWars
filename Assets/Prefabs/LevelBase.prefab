@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Priest
       objectReference: {fileID: 0}
+    - target: {fileID: 7663820660689303909, guid: a0130122f0a7e7c48a981221e6e3f419,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0130122f0a7e7c48a981221e6e3f419, type: 3}
 --- !u!4 &1777999088475102954 stripped
