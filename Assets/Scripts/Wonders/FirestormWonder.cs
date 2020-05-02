@@ -11,18 +11,13 @@ public class FirestormWonder : AbstractWonder
     [SerializeField] private float damageRadius;
     [SerializeField] private float damage;
 
-    [SerializeField] private ParticleSystem visualEffect;
+    [SerializeField] private GameObject visualEffect;
 
     private bool isSelectionActive = false;
 
     private Vector2 wonderPosition;
 
     private List<FirestormDamageReceiver> affectedEntities;
-
-    public void Update()
-    {
-        base.UpdateWonder();
-    }
 
     public override void OnWonderButtonClicked()
     {
@@ -57,8 +52,7 @@ public class FirestormWonder : AbstractWonder
     {
         if (visualEffect != null)
         {
-            visualEffect.Clear();
-            visualEffect.Play();
+            visualEffect.SetActive(true);
         }
     }
 

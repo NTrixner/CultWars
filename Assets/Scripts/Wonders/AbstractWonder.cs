@@ -31,6 +31,7 @@ public abstract class AbstractWonder : MonoBehaviour
     private FavorCount favorCount;
 
     public virtual void Update() {
+        Debug.Log("abstract wonder update");
         UpdateWonder();
     }
 
@@ -38,9 +39,9 @@ public abstract class AbstractWonder : MonoBehaviour
         button.onClick.AddListener(() => {
         if (!cooldown.IsRunning())
         {
-            button.enabled = false;
+            button.interactable = false;
             cooldown.ResetCooldown();
-            cooldown.OnCooldownEnds += () => button.enabled = true;
+            cooldown.OnCooldownEnds += () => button.interactable = true;
             OnWonderButtonClicked();
         }
         });
@@ -50,9 +51,9 @@ public abstract class AbstractWonder : MonoBehaviour
     public void UpdateWonder()
     {
         if (favorCost > favorCount.GetFavor()) {
-            button.enabled = false;
-        } else if (!button.enabled) {
-            button.enabled = !cooldown.IsRunning();
+            button.interactable = false;
+        } else {
+            button.interactable = !cooldown.IsRunning();
         }
 
         if (isActive && !wonderDuration.IsRunning())
@@ -76,12 +77,13 @@ public abstract class AbstractWonder : MonoBehaviour
 
     public void StartWonder()
     {
+        Debug.Log("start wonder");
         wonderDuration.ResetCooldown();
         favorCount.DecreaseFavor(favorCost);
         OnStartWonder();
         if (!effectStartsAfterWonder)
         {
-            OnStartWonderEffect();
+            StartWonderEffect();
         }
         isActive = true;
     }
@@ -94,6 +96,7 @@ public abstract class AbstractWonder : MonoBehaviour
 
     private void EndWonder()
     {
+        Debug.Log("end wonder");
         isActive = false;
         favorCount.IncreaseFavor(favorGain);
     }
@@ -101,6 +104,7 @@ public abstract class AbstractWonder : MonoBehaviour
 
     private void StartWonderEffect()
     {
+        Debug.Log("start wonder effect");
         isEffectActive = true;
         wonderEffectDuration.ResetCooldown();
         OnStartWonderEffect();
@@ -108,6 +112,7 @@ public abstract class AbstractWonder : MonoBehaviour
 
     private void EndWonderEffect()
     {
+        Debug.Log("end wonder effect");
         isEffectActive = false;
         OnEndWonderEffect();
     }

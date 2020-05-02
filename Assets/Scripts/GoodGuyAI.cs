@@ -16,7 +16,12 @@ public class GoodGuyAI : CultistAI
 
     [SerializeField]
     private float prayEffectDamageMultiplier = 2.0f;
+    private float strengthenEffectDamageMultiplier = 2.0f;
     private bool prayEffectActive = false;
+    private bool strengthenEffectActive = false;
+
+    [SerializeField]
+    private ParticleSystem strenghtenEffect;
 
     void Start()
     {
@@ -24,6 +29,7 @@ public class GoodGuyAI : CultistAI
         base.SetNametag();
         attackCurrentCooldown = attackCooldown;
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
+        strenghtenEffect.Stop();
     }
 
     // Update is called once per frame
@@ -72,14 +78,26 @@ public class GoodGuyAI : CultistAI
 
     public void StartPrayEffect()
     {
-        // TODO set animation/play sound for pray effect
+        strenghtenEffect.Clear();
+        strenghtenEffect.Play();
         prayEffectActive = true;
     }
 
     public void EndPrayEffect()
     {
-        // TODO end animation/play sound for pray effect
+        strenghtenEffect.Stop();
         prayEffectActive = false;
+    }
+
+    public void StartStrengthen() {
+        strenghtenEffect.Clear();
+        strenghtenEffect.Play();
+        strengthenEffectActive = true;
+    }
+
+    public void EndStrengthen() {
+        strenghtenEffect.Stop();
+        strengthenEffectActive = false;
     }
 
     protected override void SawSomething(Collider2D collision)
@@ -122,6 +140,9 @@ public class GoodGuyAI : CultistAI
         if (prayEffectActive)
         {
             curDamage *= prayEffectDamageMultiplier;
+        }
+        if (strengthenEffectActive) {
+            curDamage *= strengthenEffectDamageMultiplier;
         }
 
         return curDamage;
