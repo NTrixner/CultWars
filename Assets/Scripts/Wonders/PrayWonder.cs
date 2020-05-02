@@ -5,7 +5,7 @@ public class PrayWonder : AbstractWonder
 
     private bool isPraying = false;
     private bool isPrayEffectActive = false;
-    void Update()
+    public override void Update()
     {
         base.UpdateWonder();
     }

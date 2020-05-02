@@ -6,9 +6,13 @@ public class Cooldown : MonoBehaviour
 {
     [SerializeField]
     float seconds = 5.0f;
-    
+
     private bool isRunning = false;
     private float currentSeconds = 0.0f;
+
+    public delegate void CooldownEndsEvent();
+
+    public event CooldownEndsEvent OnCooldownEnds;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +24,10 @@ public class Cooldown : MonoBehaviour
         else if (isRunning)
         {
             isRunning = false;
+            if (OnCooldownEnds != null)
+            {
+                OnCooldownEnds();
+            }
         }
     }
 
