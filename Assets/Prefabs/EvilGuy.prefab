@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 7266498212320639882}
   - component: {fileID: 2595402751761058484}
   - component: {fileID: 5628937980444964454}
-  - component: {fileID: 262879840609060670}
+  - component: {fileID: 158519832567033182}
   m_Layer: 0
   m_Name: EvilGuy
   m_TagString: Untagged
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &262879840609060670
+--- !u!114 &158519832567033182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 5
   damageEffect: {fileID: 0}
-  healthEntity: {fileID: 4205569109908622781}
+  healthEntity: {fileID: 0}
 --- !u!1 &7313351640736102187
 GameObject:
   m_ObjectHideFlags: 0
