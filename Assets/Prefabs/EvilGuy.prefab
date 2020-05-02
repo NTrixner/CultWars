@@ -420,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 5
   damageEffect: {fileID: 0}
-  healthEntity: {fileID: 0}
+  healthEntity: {fileID: 4205569109908622781}
 --- !u!58 &7877265113084775963
 CircleCollider2D:
   m_ObjectHideFlags: 0

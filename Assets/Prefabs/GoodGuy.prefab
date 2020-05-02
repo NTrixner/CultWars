@@ -613,8 +613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingAmount: 10
-  healingEffect: {fileID: 0}
-  healthEntity: {fileID: 0}
+  healingEffect: {fileID: 9214320516093424810}
+  healthEntity: {fileID: 8786137141029506136}
 --- !u!114 &6279913466950334996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,8 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e43aeb429e058c4f986ff915172bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEntity: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  healthEntity: {fileID: 8786137141029506136}
+  spriteRenderer: {fileID: 8786137141029506143}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1329042196021259156
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 5
   damageEffect: {fileID: 0}
-  healthEntity: {fileID: 0}
+  healthEntity: {fileID: 8786137141029506136}
 --- !u!82 &6313860102776556238
 AudioSource:
   m_ObjectHideFlags: 0
