@@ -25,7 +25,7 @@ public class Altar : MonoBehaviour
         int i = 1;
         while(i < Relics.Count)
         {
-            Relics[i].enabled = i > currentRelic;
+            Relics[i].enabled = i < currentRelic;
             i++;
         }
         BigRelic.enabled = false;
@@ -37,6 +37,7 @@ public class Altar : MonoBehaviour
         Relics[currentRelic-1].enabled = true;
         if (currentRelic >= Relics.Count)
         {
+            BigRelic.enabled = true;
             Debug.Log("You've won the Game!");
             //[TODO] Win condition met! 
         }

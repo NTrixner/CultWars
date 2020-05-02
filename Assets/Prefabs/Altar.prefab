@@ -458,7 +458,7 @@ MonoBehaviour:
   - {fileID: 3936351148705477447}
   - {fileID: 3936351149101662598}
   - {fileID: 3936351149516215933}
-  BigRelic: {fileID: 3936351149087088552}
+  BigRelic: {fileID: 3936351150305153655}
   currentRelic: 0
   collider: {fileID: 3936351149192065337}
   audio: {fileID: 2533202046164005328}
