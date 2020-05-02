@@ -39,7 +39,7 @@ public class Altar : MonoBehaviour
         {
             BigRelic.enabled = true;
             Debug.Log("You've won the Game!");
-            //[TODO] Win condition met! 
+            FindObjectOfType<LevelLoader>().WonLevel();
         }
     }
 
