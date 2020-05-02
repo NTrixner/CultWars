@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 6583900932966802697}
   - component: {fileID: 6583900932966802693}
   - component: {fileID: 313904710937459614}
+  - component: {fileID: 2874609904013841983}
   m_Layer: 8
   m_Name: Cage
   m_TagString: Untagged
@@ -269,8 +270,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -856892937
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 605917c23d90d954880f8b6d20d7054f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -426,3 +427,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2874609904013841983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583900932966802698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e907bfb201f59b42809203e73125e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

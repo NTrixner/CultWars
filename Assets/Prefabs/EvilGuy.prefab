@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 158519832567033182}
   - component: {fileID: 7877265113084775963}
   - component: {fileID: 4636003244051225906}
+  - component: {fileID: 5935768716511618109}
   m_Layer: 0
   m_Name: EvilGuy
   m_TagString: Untagged
@@ -464,8 +465,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -856892937
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9fe31c93791c35c4080f819140b8a12c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -764,6 +765,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5935768716511618109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205569109908622780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e907bfb201f59b42809203e73125e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7313351640736102187
 GameObject:
   m_ObjectHideFlags: 0
