@@ -69,15 +69,18 @@ public abstract class CultistAI : HealthEntity
     {
         Debug.Log("Attacking");
         HealthEntity enemy = current_target.gameObject.GetComponent<HealthEntity>();
+        if(attackCurrentCooldown < attackCooldown)
+        {
+            attackCurrentCooldown += Time.deltaTime;
+        }
         if (enemy != null && touchesTarget)
         {
-            attackCurrentCooldown -= Time.deltaTime;
             Debug.Log("Cooldown is " + attackCurrentCooldown);
             Debug.Log("Time was " + Time.deltaTime);
-            if (attackCurrentCooldown <= 0)
+            if (attackCurrentCooldown >= attackCooldown)
             {
                 enemy.ReduceHealth(CurrentDamage());
-                attackCurrentCooldown = attackCooldown;
+                attackCurrentCooldown = 0f;
                 AudioClip clip = punchClips[Random.Range(0, punchClips.Count - 1)];
                 audioSource.PlayOneShot(clip);
             }

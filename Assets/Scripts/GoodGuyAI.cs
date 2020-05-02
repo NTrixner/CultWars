@@ -38,7 +38,6 @@ public class GoodGuyAI : CultistAI
         if (current_target == null && current_task == Task.ATTACK)
         {
             current_task = Task.IDLE;
-            touchesTarget = false;
         }
         switch (current_task)
         {
@@ -54,6 +53,7 @@ public class GoodGuyAI : CultistAI
                 break;
         }
         base.UpdateCultistAi();
+        touchesTarget = false;
     }
 
     public void Command(Vector3 target)

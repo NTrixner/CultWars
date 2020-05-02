@@ -2,7 +2,7 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : HealthEntity
 {
     [SerializeField] float _speed;
     private PlayerControls _controls;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(_moveAxis.x * Time.deltaTime * _speed, _moveAxis.y * Time.deltaTime * _speed, 0);
+        base.UpdateHealthEntity();
     }
 
     private void HandleWalk(CallbackContext context) {
@@ -61,5 +62,10 @@ public class PlayerController : MonoBehaviour
     public void RemoveRelic()
     {
         hasRelic = false;
+    }
+
+    public override void Die()
+    {
+        FindObjectOfType<LevelLoader>().LostLevel();
     }
 }

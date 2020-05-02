@@ -25,7 +25,6 @@ public class EnemyAI : CultistAI
         if (current_target == null && current_task == EvilTask.ATTACK)
         {
             current_task = EvilTask.IDLE;
-            touchesTarget = false;
         }
         switch (current_task)
         {
@@ -37,10 +36,18 @@ public class EnemyAI : CultistAI
                 break;
         }
         base.UpdateCultistAi();
+        touchesTarget = false;
     }
 
     protected override void SawSomething(Collider2D collision)
     {
+        PlayerController player;
+        if ((current_task == EvilTask.IDLE) && collision.gameObject.TryGetComponent<PlayerController>(out player))
+        {
+            current_task = EvilTask.ATTACK;
+            current_target = player.transform;
+            aIDestinationSetter.target = current_target;
+        }
         GoodGuyAI goodGuyAI;
         if ((current_task == EvilTask.IDLE) && collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
@@ -52,6 +59,12 @@ public class EnemyAI : CultistAI
 
     protected override void TouchedSomething(Collider2D collision)
     {
+        PlayerController player;
+        if (collision.gameObject.TryGetComponent<PlayerController>(out player))
+        {
+            touchesTarget = true;
+            aIDestinationSetter.target = null;
+        }
         GoodGuyAI goodGuyAI;
         if (collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {

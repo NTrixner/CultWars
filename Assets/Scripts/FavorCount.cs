@@ -8,6 +8,10 @@ public class FavorCount : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private float favor;
 
+    private void Awake()
+    {
+        _text = GameObject.Find("Favor Display").GetComponentInChildren<TextMeshProUGUI>();        
+    }
     public float GetFavor() {
         return favor;
     }

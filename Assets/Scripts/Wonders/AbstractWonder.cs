@@ -36,7 +36,11 @@ public abstract class AbstractWonder : MonoBehaviour
     }
 
     public void OnEnable() {
-        button.onClick.AddListener(() => {
+        button.onClick.AddListener(ButtonListener);
+    }
+
+    public void ButtonListener()
+    {
         if (!cooldown.IsRunning())
         {
             button.interactable = false;
@@ -44,12 +48,34 @@ public abstract class AbstractWonder : MonoBehaviour
             cooldown.OnCooldownEnds += () => button.interactable = true;
             OnWonderButtonClicked();
         }
-        });
-        favorCount = GameObject.Find("Priest").GetComponent<FavorCount>();
     }
 
     public void UpdateWonder()
     {
+        GameObject priest = GameObject.Find("Priest");
+        if(priest != null)
+        {
+            if (favorCount == null)
+            {
+                favorCount = priest.GetComponent<FavorCount>();
+                if (favorCount == null)
+                {
+                    return;
+                }
+            }
+            if (cooldown == null)
+            {
+                cooldown = priest.GetComponent<Cooldown>();
+                if (cooldown == null)
+                {
+                    return;
+                }
+            }
+        }
+        else
+        {
+            return;
+        }
         if (favorCost > favorCount.GetFavor()) {
             button.interactable = false;
         } else {
