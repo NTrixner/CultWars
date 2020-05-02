@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _speed;
     private PlayerControls _controls;
+    [SerializeField] bool hasRelic = false;
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip relicPickupSound;
 
     private Vector2 _moveAxis;
 
@@ -36,5 +39,27 @@ public class PlayerController : MonoBehaviour
     {
         _moveAxis.Set(0,0);
         Debug.Log("Handle walk cancelled");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Relic relic;
+        if(collision.collider.TryGetComponent<Relic>(out relic) && !hasRelic)
+        {
+            relic.Despawn();
+            audio.PlayOneShot(relicPickupSound);
+            hasRelic = true;
+
+        }
+    }
+
+    public bool HasRelic()
+    {
+        return hasRelic;
+    }
+
+    public void RemoveRelic()
+    {
+        hasRelic = false;
     }
 }

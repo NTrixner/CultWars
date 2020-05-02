@@ -16,12 +16,16 @@ public class Altar : MonoBehaviour
     [SerializeField]
     Collider2D collider;
 
+
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip relicSecuredSound;
+
     void Start()
     {
-        int i = 0;
+        int i = 1;
         while(i < Relics.Count)
         {
-            Relics[i].enabled = i < currentRelic;
+            Relics[i].enabled = i > currentRelic;
             i++;
         }
         BigRelic.enabled = false;
@@ -43,8 +47,12 @@ public class Altar : MonoBehaviour
         PlayerController controller;
         if(collision.collider.TryGetComponent<PlayerController> (out controller))
         {
-            //[TODO] Check if player has relic!
-            GotRelic();
+            if(controller.HasRelic())
+            {
+                GotRelic();
+                audio.PlayOneShot(relicSecuredSound);
+                controller.RemoveRelic();
+            }
         }
     }
 }
