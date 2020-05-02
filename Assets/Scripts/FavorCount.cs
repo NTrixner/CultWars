@@ -6,17 +6,21 @@ public class FavorCount : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI _text;
-    private int favor;
+    private float favor;
+
+    public float GetFavor() {
+        return favor;
+    }
 
     void Update() {
         _text.text = favor.ToString();
     }
 
-    void IncreaseFavor(int value) {
-        favor -= value;
+    public void IncreaseFavor(float value) {
+        favor += value;
     }
 
-    void DecreaseFavor(int value) {
-        favor += value;
+    public void DecreaseFavor(float value) {
+        favor -= value;
     }
 }
