@@ -34,5 +34,6 @@ public class Healable : MonoBehaviour
     public void EndHealing() {
         Debug.Log("healing ends");
         isHealing = false;
+        healingEffect.gameObject.SetActive(false);
     }
 }

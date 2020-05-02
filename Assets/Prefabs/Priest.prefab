@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1824b19483895408fb16127eeb1620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 5
+  seconds: 10
 --- !u!114 &907493674168908463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1824b19483895408fb16127eeb1620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 5
+  seconds: 3
 --- !u!1 &907493674531210988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1113,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907493674930421082}
+  - component: {fileID: 7940835732281864949}
+  - component: {fileID: 6477717144228778286}
+  - component: {fileID: 729893925849697916}
   m_Layer: 0
   m_Name: StrengthenWonder
   m_TagString: Untagged
@@ -1134,6 +1137,51 @@ Transform:
   m_Father: {fileID: 628058235534792021}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7940835732281864949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907493674930421083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd55e472ec100e844a6f2846b07025e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 834794127514505398}
+  favorCost: 15
+  favorGain: 0
+  cooldown: {fileID: 907493674242810451}
+  wonderDuration: {fileID: 6477717144228778286}
+  wonderEffectDuration: {fileID: 729893925849697916}
+  effectStartsAfterWonder: 0
+--- !u!114 &6477717144228778286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907493674930421083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1824b19483895408fb16127eeb1620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 3
+--- !u!114 &729893925849697916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907493674930421083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1824b19483895408fb16127eeb1620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 3
 --- !u!1 &986683146582472194
 GameObject:
   m_ObjectHideFlags: 0

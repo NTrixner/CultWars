@@ -10,7 +10,7 @@ public class SacrificeWonder : AbstractWonder
     private bool isSelectionActive = false;
     private Sacrificeable highlighted;
 
-    public void Update()
+    public override void Update()
     {
         base.UpdateWonder();
 
@@ -54,6 +54,10 @@ public class SacrificeWonder : AbstractWonder
     public void AbortSelection(CallbackContext obj)
     {
         isSelectionActive = false;
+        if (highlighted != null) {
+            highlighted.RemoveHighlight();
+        }
+        // TODO abort cooldown
     }
 
 

@@ -8,8 +8,8 @@ public class FirestormDamageReceiver : MonoBehaviour
     private float damageAmount;
 
     [SerializeField]
-    private ParticleSystem damageEffect;
-
+    private GameObject fireEffect;
+    
     [SerializeField]
     private HealthEntity healthEntity;
 
@@ -26,6 +26,7 @@ public class FirestormDamageReceiver : MonoBehaviour
     public void StartDamage() {
         Debug.Log("damaging starts");
         isInflictingDamage = true;
+        fireEffect.SetActive(true);
         // healingEffect.gameObject.SetActive(true);
         // healingEffect.Clear();
         // healingEffect.Play();
@@ -34,5 +35,6 @@ public class FirestormDamageReceiver : MonoBehaviour
     public void EndDamage() {
         Debug.Log("damaging ends");
         isInflictingDamage = false;
+        fireEffect.SetActive(false);
     }
 }

@@ -36,6 +36,7 @@ public class HealWonder : AbstractWonder
 
     protected override void OnEndWonderEffect()
     {
+        Debug.Log("end heal wonder effect");
         foreach (Healable healable in healedEntities)
         {
             healable.EndHealing();
