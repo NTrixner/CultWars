@@ -6,6 +6,8 @@ public class SacrificeWonder : AbstractWonder
 {
 
     [SerializeField] private float radius;
+    [SerializeField] private Texture2D sacrificeCursor;
+    [SerializeField] private Texture2D defaultCursor;
 
     private bool isSelectionActive = false;
     private Sacrificeable highlighted;
@@ -48,6 +50,7 @@ public class SacrificeWonder : AbstractWonder
     private void StartSelection()
     {
         isSelectionActive = true;
+        Cursor.SetCursor(sacrificeCursor, Vector2.zero, CursorMode.Auto);
     }
 
 
@@ -58,6 +61,7 @@ public class SacrificeWonder : AbstractWonder
             highlighted.RemoveHighlight();
         }
         // TODO abort cooldown
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
 
@@ -70,6 +74,7 @@ public class SacrificeWonder : AbstractWonder
             base.StartWonder();
             isSelectionActive = false;
         }
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 
     }
 
