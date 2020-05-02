@@ -23,9 +23,9 @@ public class Altar : MonoBehaviour
     void Start()
     {
         int i = 1;
-        while(i < Relics.Count)
+        while(i <= Relics.Count)
         {
-            Relics[i].enabled = i < currentRelic;
+            Relics[i-1].enabled = i < currentRelic;
             i++;
         }
         BigRelic.enabled = false;

@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 3936351149192065319}
   - component: {fileID: 3936351149192065337}
   - component: {fileID: 2533202046164005328}
+  - component: {fileID: 7730371294019575343}
   m_Layer: 8
   m_Name: Altar
   m_TagString: Untagged
@@ -575,6 +576,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7730371294019575343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936351149192065316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e907bfb201f59b42809203e73125e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3936351149217317860
 GameObject:
   m_ObjectHideFlags: 0

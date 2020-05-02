@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1396076111271215726}
   - component: {fileID: 1396076111271215727}
   - component: {fileID: 8640010128652088880}
+  - component: {fileID: 8637508498717661219}
   m_Layer: 8
   m_Name: Relic
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -856892937
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f23fdad20e39c1e4d880a47592956e01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,5 +132,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cd98300e5681a54ab642aae4902e36d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8637508498717661219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396076111271215724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e907bfb201f59b42809203e73125e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
