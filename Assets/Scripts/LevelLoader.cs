@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
 {
     public static List<string> levelList = new List<string>()
     {
-        "Tutorial", "MainScene"
+        "Tutorial", "Level 1_5", "Level 2"
     };
     public static LevelLoader instance;
     [SerializeField] private string currentLevel;
