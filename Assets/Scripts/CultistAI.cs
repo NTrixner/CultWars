@@ -91,6 +91,11 @@ public abstract class CultistAI : HealthEntity
         }
     }
 
+    protected bool IsNearer(Collider2D collision)
+    {
+        return Vector2.Distance(current_target.position, transform.position) < Vector2.Distance(collision.transform.position, transform.position);
+    }
+
     public override void Die()
     {
         AudioClip clip = deathClips[Random.Range(0, deathClips.Count - 1)];

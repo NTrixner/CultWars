@@ -42,14 +42,14 @@ public class EnemyAI : CultistAI
     protected override void SawSomething(Collider2D collision)
     {
         PlayerController player;
-        if ((current_task == EvilTask.IDLE) && collision.gameObject.TryGetComponent<PlayerController>(out player))
+        if ((current_task == EvilTask.IDLE || (!touchesTarget && current_task == EvilTask.ATTACK && IsNearer(collision))) && collision.gameObject.TryGetComponent<PlayerController>(out player))
         {
             current_task = EvilTask.ATTACK;
             current_target = player.transform;
             aIDestinationSetter.target = current_target;
         }
         GoodGuyAI goodGuyAI;
-        if ((current_task == EvilTask.IDLE) && collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
+        if ((current_task == EvilTask.IDLE || (!touchesTarget && current_task == EvilTask.ATTACK && IsNearer(collision))) && collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
             current_task = EvilTask.ATTACK;
             current_target = goodGuyAI.transform;
@@ -62,14 +62,30 @@ public class EnemyAI : CultistAI
         PlayerController player;
         if (collision.gameObject.TryGetComponent<PlayerController>(out player))
         {
-            touchesTarget = true;
-            aIDestinationSetter.target = null;
+            if(collision.transform == current_target)
+            {
+                touchesTarget = true;
+                aIDestinationSetter.target = null;
+            }
+            else
+            {
+                current_target = collision.transform;
+                aIDestinationSetter.target = null;
+            }
         }
         GoodGuyAI goodGuyAI;
         if (collision.gameObject.TryGetComponent<GoodGuyAI>(out goodGuyAI))
         {
-            touchesTarget = true;
-            aIDestinationSetter.target = null;
+            if(collision.transform == current_target)
+            {
+                touchesTarget = true;
+                aIDestinationSetter.target = null;
+            }
+            else
+            {
+                current_target = collision.transform;
+                aIDestinationSetter.target = null;
+            }
         }
     }
 

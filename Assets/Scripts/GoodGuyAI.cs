@@ -103,14 +103,14 @@ public class GoodGuyAI : CultistAI
     protected override void SawSomething(Collider2D collision)
     {
         EnemyAI targetEnemy;
-        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<EnemyAI>(out targetEnemy))
+        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND || (!touchesTarget && current_task == Task.ATTACK && IsNearer(collision))) && collision.gameObject.TryGetComponent<EnemyAI>(out targetEnemy))
         {
             current_task = Task.ATTACK;
             current_target = targetEnemy.transform;
             aIDestinationSetter.target = current_target;
         }
         Cage targetCage;
-        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND) && collision.gameObject.TryGetComponent<Cage>(out targetCage))
+        if ((current_task == Task.IDLE || current_task == Task.FOLLOW_COMMAND || (!touchesTarget && current_task == Task.ATTACK && IsNearer(collision))) && collision.gameObject.TryGetComponent<Cage>(out targetCage))
         {
             current_task = Task.ATTACK;
             current_target = targetCage.transform;
