@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Pathfinding;
 using TMPro;
+using System.Collections.Generic;
 
 public abstract class CultistAI : HealthEntity
 {
@@ -38,6 +39,18 @@ public abstract class CultistAI : HealthEntity
     [SerializeField]
     protected TextMeshProUGUI nametag;
 
+    [SerializeField]
+    protected List<AudioClip> deathClips;
+
+    [SerializeField]
+    protected List<AudioClip> punchClips;
+
+    [SerializeField]
+    protected AudioSource audioSource;
+
+    [SerializeField]
+    protected List<GameObject> bloodStains;
+
     protected void SetNametag()
     {
         if (nametag != null)
@@ -65,6 +78,8 @@ public abstract class CultistAI : HealthEntity
             {
                 enemy.ReduceHealth(CurrentDamage());
                 attackCurrentCooldown = attackCooldown;
+                AudioClip clip = punchClips[Random.Range(0, punchClips.Count - 1)];
+                audioSource.PlayOneShot(clip);
             }
         }
         else
@@ -73,14 +88,20 @@ public abstract class CultistAI : HealthEntity
         }
     }
 
-
-
     public override void Die()
     {
+        AudioClip clip = deathClips[Random.Range(0, deathClips.Count - 1)];
+        audioSource.PlayOneShot(clip);
+        Invoke("Death", clip.length * 0.8f);
+    }
+
+    void Death()
+    {
+        GameObject randomBloodStain = bloodStains[Random.Range(0, bloodStains.Count - 1)];
+        Instantiate(randomBloodStain, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
         Debug.Log(name + " has died.");
         Destroy(gameObject);
     }
-
 
     protected void Idle()
     {

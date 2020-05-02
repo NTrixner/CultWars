@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1802433767}
   - component: {fileID: 1802433769}
   - component: {fileID: 1802433768}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Nametag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 5628937980444964454}
   - component: {fileID: 158519832567033182}
   - component: {fileID: 7877265113084775963}
+  - component: {fileID: 4636003244051225906}
   m_Layer: 0
   m_Name: EvilGuy
   m_TagString: Untagged
@@ -313,6 +314,19 @@ MonoBehaviour:
   touchesTarget: 0
   aIDestinationSetter: {fileID: 0}
   nametag: {fileID: 1802433768}
+  deathClips:
+  - {fileID: 8300000, guid: 1f71a8d9f09d5aa45be0e5666400a446, type: 3}
+  - {fileID: 8300000, guid: 4d382cd3092335241ac6a70128544726, type: 3}
+  - {fileID: 8300000, guid: 8d6c113ee00270c49a4a3d53c7bfc992, type: 3}
+  punchClips:
+  - {fileID: 8300000, guid: 6b831b92326b3b240808db92de101157, type: 3}
+  - {fileID: 8300000, guid: 7169bd7c348129f40830c2f3a9bc1387, type: 3}
+  - {fileID: 8300000, guid: da8560564f35ebc4799685ff301ccec8, type: 3}
+  audioSource: {fileID: 4636003244051225906}
+  bloodStains:
+  - {fileID: 4448864008904051463, guid: d728f1ad421b6744fb35fff889dbd50a, type: 3}
+  - {fileID: 5413934798923365097, guid: 9c51fde9691a74f4bbf8232e42d20c3b, type: 3}
+  - {fileID: 1425858194495324517, guid: a9ca407e7f6810b498dd0c6355286c81, type: 3}
   current_task: 1
 --- !u!114 &7266498212320639882
 MonoBehaviour:
@@ -423,6 +437,102 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!82 &4636003244051225906
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205569109908622780}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7313351640736102187
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +545,7 @@ GameObject:
   - component: {fileID: 7313351640736102191}
   - component: {fileID: 7313351640736102188}
   - component: {fileID: 7313351640736102189}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +591,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -856892937
+  m_SortingLayerID: -1532219297
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7313351640736102188
@@ -534,7 +644,7 @@ GameObject:
   - component: {fileID: 7313351641432124029}
   - component: {fileID: 7313351641432124026}
   - component: {fileID: 7313351641432124027}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
