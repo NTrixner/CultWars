@@ -7,7 +7,7 @@ public class FollowerCount : MonoBehaviour
     private int followers = 42;
 
     void Update() {
-        // todo: add here the logic to update follower count
+        followers = FindObjectsOfType<GoodGuyAI>().Length;
         _text.text = followers.ToString();
     }
 
