@@ -12,6 +12,8 @@ public class FirestormWonder : AbstractWonder
     [SerializeField] private float damage;
 
     [SerializeField] private GameObject visualEffect;
+    [SerializeField] private Texture2D fireCursor;
+    [SerializeField] private Texture2D defaultCursor;
 
     private bool isSelectionActive = false;
 
@@ -29,12 +31,14 @@ public class FirestormWonder : AbstractWonder
     private void StartSelection()
     {
         isSelectionActive = true;
+        Cursor.SetCursor(fireCursor, Vector2.zero, CursorMode.Auto);
     }
 
 
     public void AbortSelection(CallbackContext obj)
     {
         isSelectionActive = false;
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
 
@@ -46,6 +50,7 @@ public class FirestormWonder : AbstractWonder
             base.StartWonder();
             isSelectionActive = false;
         }
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
     protected override void OnStartWonder()
