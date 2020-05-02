@@ -568,6 +568,12 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158948561879620894, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 70cd124b78fda9a4d97d80ceb4b99dfd,
+        type: 3}
     - target: {fileID: 5380610241382203094, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -647,6 +653,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202677665051750285, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202677665051750285, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202677665051750285, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.16981131
       objectReference: {fileID: 0}
     - target: {fileID: 8449421466399802096, guid: 04c0dd61e72bab54b9e41c84ea8af4bc,
         type: 3}
